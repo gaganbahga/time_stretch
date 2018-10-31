@@ -1,7 +1,7 @@
 # Time Stretch
-This python script implements stretching or shrinking audio data without changing the pitch. Given an input wav file, it stretches(shrinks) it and saves to a new output file. The file can also be imported as a library function.
-The audio is first convert to frequency domain resulting in a short-term fourier transform. The STFT is then transformed according to [The Phase Vocoder](https://labrosa.ee.columbia.edu/matlab/pvoc/) algorithm, and ultitmately converted back to time domain.
-The functionality is inside `stretch()` function. I wrote a loop-less version of this function in `stretch_wo_loop` in order boost speed, but it just led to less a readable function without much change is speed.
+This python script implements stretching or shrinking audio data without changing the pitch. Given an input wav file, it stretches(or shrinks) it and saves to a new output file.
+The audio is first converted to frequency domain resulting in a short-term fourier transform (STFT). The STFT is then transformed according to [The Phase Vocoder](https://labrosa.ee.columbia.edu/matlab/pvoc/) algorithm, and ultitmately converted back to time domain. The stretch is controlled by the stretch factor, the new duration being old duration times the stretch factor.
+The file can also be imported as a library to call the stretch function. The functionality is inside `stretch()` function. I wrote a loop-less version of this function as `stretch_wo_loop()` in order boost speed, but it just led to less a readable function without much change is speed.
 The command line usage for running the script is:
 ```
 usage: speed up or speed down the audio without changing the pitch
