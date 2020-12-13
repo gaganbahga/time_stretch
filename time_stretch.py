@@ -7,6 +7,7 @@ from os import path
 import argparse
 import librosa
 import numpy as np
+import soundfile
 
 
 def main(args):
@@ -17,7 +18,7 @@ def main(args):
     if out_file is None:
         out_file = path.join(path.dirname(args.in_file), 'time_stretched.wav')
     
-    librosa.output.write_wav(out_file, x_stretched, sr)
+    soundfile.write(out_file, x_stretched, sr)
 
 
 def stretch(x, factor, nfft=2048):
